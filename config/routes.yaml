@@ -9,3 +9,10 @@ api_login_check:
 
 api_refresh_token:
     path: /api/login/token/refresh
+
+home:
+    path:       /{_locale}/home
+    controller: App\Controller\HomeController::index
+    locale: en
+    requirements:
+        _locale: en|fr|es

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+    {{ "Welcome"|trans }}
+
+    <div class="count d-flex flex-row"> <h4>Nombre total de dictons: </h4><h3>{{ pagination.totalItemCount }}</h3></div>
+    <hr>
+    <hr>
+
+    {% for dicton in pagination.items %}
+        <h3>{{ dicton.author.name }}</h3>
+        <p>{{ dicton.content }}</p>
+        <p>{{ dicton.createdAt | date("m/d/Y") }}</p>
+        <p>{{ dicton.id }}</p>
+
+        <hr>
+    {% endfor %}
+    <div class="navigation m-3">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}
